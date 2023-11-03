@@ -3,15 +3,18 @@ public class EjemploAutomovilEnum {
 
         Automovil.setCapacidadTanqueEstatico(40);
 
-        Automovil subaru = new Automovil("Subaru", "Impreza", Color.AZUL, 2.0, 40);
+        Automovil subaru = new Automovil("Subaru", "Impreza", Color.AZUL);
+        Motor motorSubaru  = new Motor(2.4, TipoMotor.DIESEL);
+        Estanque estanqueSubaru = new Estanque(70);
+        
         subaru.setTipoAutomovil(TipoAutomovil.HATCHBACK);
+        subaru.setMotor(motorSubaru);
+        subaru.setEstanque(estanqueSubaru);
 
         Automovil mazda = new Automovil();
         mazda.setFabricante("Mazda");
         mazda.setModelo("Rx7");
         mazda.setColor(Color.AZUL);
-        mazda.setCilindrada(4.0);
-        mazda.setCapacidadTanque(70);
         mazda.setTipoAutomovil(TipoAutomovil.CUOPE);
 
         TipoAutomovil tipoSubaru = subaru.getTipoAutomovil();
