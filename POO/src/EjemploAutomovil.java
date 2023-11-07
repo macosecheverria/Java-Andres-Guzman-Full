@@ -10,6 +10,7 @@ public class EjemploAutomovil {
         System.out.println(subaru.getFabricante());
         System.out.println(subaru.getModelo());
         System.out.println(subaru.getColor());
+
         System.out.println(subaru.getMotor());
         System.out.println(subaru.getEstanque());
         System.out.println(subaru.acelerar(70));

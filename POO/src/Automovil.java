@@ -1,4 +1,4 @@
-public class Automovil {
+public class Automovil implements Comparable<Automovil> {
     private int id;
     private String fabricante;
     private String modelo;
@@ -115,6 +115,10 @@ public class Automovil {
     }
 
     public Estanque getEstanque() {
+        if(estanque == null){
+            return new Estanque();
+        }
+
         return estanque;
     }
 
@@ -153,11 +157,11 @@ public class Automovil {
     }
 
     public float calcularConsumo(int km, float porcentajeGas) {
-        return km / (estanque.getCapacidad() * porcentajeGas);
+        return km / (getEstanque().getCapacidad() * porcentajeGas);
     }
 
     public float calcularConsumo(int km, int porcentajeGas) {
-        return km / (estanque.getCapacidad() * (porcentajeGas / 100f));
+        return km / (getEstanque().getCapacidad() * (porcentajeGas / 100f));
     }
 
     public static float calcularConsumoEstatico(int km, int porcentajeGas) {
@@ -185,7 +189,13 @@ public class Automovil {
         return "Automovil [id=" + id + "fabricante" + fabricante + ", modelo=" + modelo + ", color=" + color
                 + ", cilindrada="
                 + estanque + ", capacidadTanque=" + estanque + "colorPatente" + colorPatente
-                + "Tipo de auto con su descripcion" + tipo.toString() + "]";
+                + "Tipo de auto con su descripcion" + tipo + "]";
+    }
+
+
+    @Override
+    public int compareTo(Automovil a){
+        return fabricante.compareTo(a.fabricante);
     }
 
     /*
