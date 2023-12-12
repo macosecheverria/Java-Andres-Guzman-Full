@@ -1,14 +1,19 @@
 package org.aguzman.poointerface.repositorio;
 
-import org.aguzman.poointerface.modelo.Cliente;
-
 import java.util.List;
 
-public interface CrudRepositorio {
-    List<Cliente> listar();
-    Cliente getId(Integer id);
-    void postCliente(Cliente cliente);
-    void putCliente(Cliente cliente);
-    void deleteCliente(Integer id);
+import org.aguzman.poointerface.repositorio.excepciones.AccesoDatosException;
+
+
+public interface CrudRepositorio<T> {
+    List<T> listar();
+
+    T getId(Integer id) throws AccesoDatosException;
+
+    void crear(T cliente) throws AccesoDatosException;
+
+    void editar(T cliente) throws AccesoDatosException;
+
+    void eliminar(Integer id) throws AccesoDatosException;
 
 }
